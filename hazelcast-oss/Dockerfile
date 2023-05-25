@@ -24,7 +24,7 @@ ENV HZ_HOME="${HZ_HOME}" \
 EXPOSE 5701
 
 # COPY *.jar get-hz-dist-zip.sh hazelcast-*.zip ${HZ_HOME}/
-COPY get-hz-dist-zip.sh ${HZ_HOME}/
+COPY hazelcast-oss/get-hz-dist-zip.sh ${HZ_HOME}/
 
 # Install
 RUN echo "Upgrading APK packages" \
@@ -48,7 +48,7 @@ RUN echo "Upgrading APK packages" \
     && apk del libxml2-utils zip unzip \
     && rm -rf /var/cache/apk/* ${HZ_HOME}/get-hz-dist-zip.sh ${HZ_HOME}/hazelcast-distribution.zip ${HZ_HOME}/tmp
 
-COPY log4j2.properties log4j2-json.properties jmx_agent_config.yaml ${HZ_HOME}/config/
+COPY hazelcast-oss/log4j2.properties hazelcast-oss/log4j2-json.properties hazelcast-oss/jmx_agent_config.yaml ${HZ_HOME}/config/
 
 WORKDIR ${HZ_HOME}
 
