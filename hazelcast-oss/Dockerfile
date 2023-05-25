@@ -23,7 +23,8 @@ ENV HZ_HOME="${HZ_HOME}" \
 # Expose port
 EXPOSE 5701
 
-COPY *.jar get-hz-dist-zip.sh hazelcast-*.zip ${HZ_HOME}/
+# COPY *.jar get-hz-dist-zip.sh hazelcast-*.zip ${HZ_HOME}/
+COPY get-hz-dist-zip.sh ${HZ_HOME}/
 
 # Install
 RUN echo "Upgrading APK packages" \
